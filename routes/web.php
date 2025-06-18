@@ -1,11 +1,14 @@
 pgp<?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SwitchController;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\SobreNosController;
 use App\Http\Controllers\TesteController;
 use App\Http\Controllers\FornecedorController;
+use App\Http\Controllers\OperadorController;
+
 
 
 
@@ -105,3 +108,13 @@ route::get('/isset',[FornecedorController::class, 'isset']); //utilizando a tag 
 //utilizando empty
 
 route::get('/empty',[FornecedorController::class, 'Empty']);
+
+// utilizando operador condicional ternário
+
+route::get ('/operador/condicional/ternario', [OperadorController::class, 'calculo']);
+
+// switch / case
+
+route::get ('/switch', [SwitchController::class, 'calculo3']);
+
+// for
