@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 class ContatoController extends Controller
 {
+
     public function Contato2() {
-        return view('Contato.contatofront');
-    }
+        $idade = 19;
+        return view('Contato.contatofront', compact('idade')); //transferindo variavel para view
+        }
 }
 

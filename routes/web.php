@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PrincipalController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\SobreNosController;
+use App\Http\Controllers\TesteController;
+use App\Http\Controllers\FornecedorController;
+
 
 
 Route::get('/sobre-nos2', function () {
@@ -12,17 +15,15 @@ Route::get('/sobre-nos2', function () {
 
 Route::get('/', [PrincipalController::class, 'SejaBemVindo']); // encaminhamento para o controller.
 
-Route::get('/contatos', [ContatoController::class, 'Contato2']);
-
 Route::get('/sobre-nos', [SobreNosController::class, 'SobreNos']);
 
 
-Route::get('/contatos/{nome}/{categoria}/{assunto}/{mensagem?}',
+Route::get('/contatos7/{nome}/{categoria}/{assunto}/{mensagem?}',
     function (string $nome,string $categoria,string $assunto, string $mensagem ) { //inclusão de parametros no rotas
     echo 'estamos aqui - ' . $nome .' - '. $categoria . ' - ' . $assunto . ' - ' . $mensagem;
 });
 
-Route::get('/contatos2/{nome}/{categoria}/{assunto}/{mensagem?}', // direita para esquerda
+Route::get('/contatos8/{nome}/{categoria}/{assunto}/{mensagem?}', // direita para esquerda
     function (string $nome,string $categoria,string $assunto, string $mensagem = 'mensagem não informada') { //inclusão de parametros opcionais
         echo 'estamos aqui - ' . $nome .' - '. $categoria . ' - ' . $assunto . ' - ' . $mensagem;
     });
@@ -81,3 +82,26 @@ route::get('/rota2', function () {
 //ou
 //route::redirect('/rota2', '/rota1');
 // <-------------------------------------->
+
+
+//encaminhamento de parâmetros da rota para o controller
+route::get('/rota3/{p1}/{p2}',[TesteController::class, 'teste'])-> name('teste');
+
+
+//utilizando if e else
+
+Route::get('/contatos', [ContatoController::class, 'Contato2',]); //transferindo váriavel para o view e com if e else e else if
+
+Route::get('/contatos5', [FornecedorController::class, 'Contato3',]); //transferindo array para o view com if e else e else if
+
+//utilizando unless
+
+route::get('/unless',[FornecedorController::class, 'Unless']); //utilizando a tag @unless @endunless
+
+//utilizando Isset
+
+route::get('/isset',[FornecedorController::class, 'isset']); //utilizando a tag @isset @endisset
+
+//utilizando empty
+
+route::get('/empty',[FornecedorController::class, 'Empty']);
