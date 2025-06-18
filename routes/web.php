@@ -8,16 +8,17 @@ use App\Http\Controllers\SobreNosController;
 use App\Http\Controllers\TesteController;
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\OperadorController;
+use App\Http\Controllers\ForController;
+use App\Http\Controllers\WhileController;
+use App\Http\Controllers\ForeachController;
+use App\Http\Controllers\ForelseController;
 
 
-
-
-Route::get('/sobre-nos2', function () {
+Route::get('/sobre-nos2', function () {   //criando route com um call back
     return 'Sobre-nos';
 });
 
 Route::get('/', [PrincipalController::class, 'SejaBemVindo']); // encaminhamento para o controller.
-
 Route::get('/sobre-nos', [SobreNosController::class, 'SobreNos']);
 
 
@@ -107,14 +108,28 @@ route::get('/isset',[FornecedorController::class, 'isset']); //utilizando a tag 
 
 //utilizando empty
 
-route::get('/empty',[FornecedorController::class, 'Empty']);
+route::get('/empty',[FornecedorController::class, 'Empty']); //utilizando a tag empty
 
 // utilizando operador condicional ternário
 
-route::get ('/operador/condicional/ternario', [OperadorController::class, 'calculo']);
+route::get ('/operador/condicional/ternario', [OperadorController::class, 'calculo']); // utilizando ternário
 
 // switch / case
 
-route::get ('/switch', [SwitchController::class, 'calculo3']);
+route::get ('/switch', [SwitchController::class, 'calculo3']); //utilizando a tag switch case e default
 
 // for
+
+route::get('/for', [ForController::class, 'calculo4']); // utilizando for
+
+//while
+route::get('/while', [WhileController::class, 'calculo5']); //  utilizando while
+
+//foreach
+route::get('/foreach', [ForeachController::class, 'calculo6']); // utilizando foreach
+
+//forelse
+
+route::get('/forelse', [ForelseController::class, 'calculo7']); // utilizando forelse
+
+
