@@ -1,4 +1,4 @@
-<?php
+pgp<?php
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PrincipalController;
@@ -50,10 +50,34 @@ Route::get('/produtos', function () {return 'Produtos';});
 });
 // <-------------------------------------->
 
+//utilizando name nas routes
+
 Route::get('/principal', [PrincipalController::class, 'SejaBemVindo']) ->name('site.index'); // Nomeando Rotas
 
 Route::get('/contatos2', [ContatoController::class, 'Contato2']) ->name('site.contatos2');
 
 Route::get('/sobre-nos2', [SobreNosController::class, 'SobreNos']) ->name('site.sobrenos');
 
-Route::get('/login', function () {return 'Login';});
+Route::get('/login', function () {return 'Login';}) ->name ('site.login');
+
+Route::prefix('/app2')->group(function () {
+    Route::get('/clientes2', function () {return 'Clientes';}) ->name('site.clientes');           // nomeando as rotas
+    Route::get('/fornecedores2', function () {return 'Fornecedores';}) ->name('site.fornecedores');
+    Route::get('/produtos2', function () {return 'Produtos';}) ->name('site.produtos');
+});
+
+// <-------------------------------------->
+
+//rederecionamento de rotas
+
+route::get('/rota1', function () {
+    echo 'Você está na Rota1';
+}) -> name('site.rota1');
+
+route::get('/rota2', function () {
+    return redirect()->route('site.rota1');
+})-> name('site.rota2');
+
+//ou
+//route::redirect('/rota2', '/rota1');
+// <-------------------------------------->

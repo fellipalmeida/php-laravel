@@ -1,8 +1,11 @@
+<title>Meu Site Laravel</title>
+
 <h3>Principal (view)</h3>
 {{-- Criando menu para outras rotas --}}
+
 <ul>
     <li>
-        <a href="/"> Principal </a>
+        <a href="{{ route('site.clientes') }}"> Principal </a>   {{-- utilizando name -> --}}
     </li>
 
     <li>
