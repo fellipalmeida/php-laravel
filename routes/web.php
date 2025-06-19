@@ -126,10 +126,10 @@ route::get('/for', [ForController::class, 'calculo4']); // utilizando for
 route::get('/while', [WhileController::class, 'calculo5']); //  utilizando while
 
 //foreach
-route::get('/foreach', [ForeachController::class, 'calculo6']); // utilizando foreach
+route::get('/foreach', [ForeachController::class, 'calculo7']); // utilizando foreach pode usar também o calculo6
 
 //forelse
 
-route::get('/forelse', [ForelseController::class, 'calculo7']); // utilizando forelse
+route::get('/forelse', [ForelseController::class, 'calculo8']); // utilizando forelse
 
 
