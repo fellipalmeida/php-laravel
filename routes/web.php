@@ -1,5 +1,6 @@
 pgp<?php
 
+use App\Http\Controllers\FormularioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SwitchController;
 use App\Http\Controllers\PrincipalController;
@@ -12,6 +13,12 @@ use App\Http\Controllers\ForController;
 use App\Http\Controllers\WhileController;
 use App\Http\Controllers\ForeachController;
 use App\Http\Controllers\ForelseController;
+use App\Http\Controllers\Principal3Controller;
+use App\Http\Controllers\Contato3Controller;
+use App\Http\Controllers\Sobrenos3Controller;
+
+
+
 
 
 Route::get('/sobre-nos2', function () {   //criando route com um call back
@@ -132,4 +139,12 @@ route::get('/foreach', [ForeachController::class, 'calculo7']); // utilizando fo
 
 route::get('/forelse', [ForelseController::class, 'calculo8']); // utilizando forelse
 
+//assets, @extends @include @yield @section route e assets e utilizando metodos de formulario get e post
+route::post('/principal3', [Principal3Controller::class, 'Principal3'])->name('principal3'); // adicionando arquivo css externo no blade, utilizando assets e route no ahref
+route::get('/principal3', [Principal3Controller::class, 'Principal3'])->name('principal3'); //formulario post precisa ter 2 rotas uma get e uma post
+route::get('/contato3', [Contato3Controller::class, 'Contato3']) ->name('contato3'); // utilizando @extends @yield @section @endsection
+route::get('/sobrenos3', [Sobrenos3Controller::class, 'Sobrenos3']) ->name('sobrenos3');
 
+//formulários : request
+route::get('/formulario', [App\Http\Controllers\FormularioController::class, 'login']) ->name('login');
+route::post('/formulario', [App\Http\Controllers\FormularioController::class, 'login']) ->name('login');
