@@ -1,4 +1,4 @@
-pgp<?php
+<?php
 
 use App\Http\Controllers\FormularioController;
 use Illuminate\Support\Facades\Route;
@@ -145,6 +145,13 @@ route::get('/principal3', [Principal3Controller::class, 'Principal3'])->name('pr
 route::get('/contato3', [Contato3Controller::class, 'Contato3']) ->name('contato3'); // utilizando @extends @yield @section @endsection
 route::get('/sobrenos3', [Sobrenos3Controller::class, 'Sobrenos3']) ->name('sobrenos3');
 
-//formulários : request
-route::get('/formulario', [App\Http\Controllers\FormularioController::class, 'login']) ->name('login');
-route::post('/formulario', [App\Http\Controllers\FormularioController::class, 'login']) ->name('login');
+//formulários : request e utilizando try e catch e também utilizando ->validate e também o banco de dados
+route::get('/formulario', [App\Http\Controllers\FormularioController::class, 'mostrar']) ->name('formulario');
+route::post('/formulario', [App\Http\Controllers\FormularioController::class, 'processar']) ->name('salvar');
+
+
+// Rota para criar um novo convite
+Route::get('/criar-convite', [App\Http\Controllers\AniversarioController::class, 'criarConvite']);
+
+// Rota para confirmar presença com ID e token
+Route::get('/confirmar/{id}/{token}', [App\Http\Controllers\AniversarioController::class, 'confirmar']);
