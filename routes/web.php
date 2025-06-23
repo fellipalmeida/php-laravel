@@ -155,3 +155,7 @@ Route::get('/criar-convite', [App\Http\Controllers\AniversarioController::class,
 
 // Rota para confirmar presença com ID e token
 Route::get('/confirmar/{id}/{token}', [App\Http\Controllers\AniversarioController::class, 'confirmar']);
+
+//feriados
+
+route::get('/cadastros/feriados', [App\Http\Controllers\FeriadosController::class, 'index2' ]);
