@@ -16,6 +16,7 @@ use App\Http\Controllers\ForelseController;
 use App\Http\Controllers\Principal3Controller;
 use App\Http\Controllers\Contato3Controller;
 use App\Http\Controllers\Sobrenos3Controller;
+use App\Http\Controllers\Feriados2Controller;
 
 
 
@@ -158,4 +159,25 @@ Route::get('/confirmar/{id}/{token}', [App\Http\Controllers\AniversarioControlle
 
 //feriados
 
-route::get('/cadastros/feriados', [App\Http\Controllers\FeriadosController::class, 'index2' ]);
+//route::get('/cadastros/feriados', [App\Http\Controllers\FeriadosController::class, 'index2' ])->name('site.feriados');
+//route::get('/cadastros/feriados/criar', [App\Http\Controllers\FeriadosController::class, 'criar' ])->name('criar.feriados');
+//Route::post('/cadastros/feriados/criar', [App\Http\Controllers\FeriadosController::class, 'criar'], 'store')->name('salvar.feriados');
+
+//feriados 2.0
+// Rota para mostrar a lista de feriados (página principal)
+Route::get('/cadastros/feriados', [Feriados2Controller::class, 'index'])->name('site.feriados');
+
+// Rota para mostrar o formulário de criação
+Route::get('/cadastros/feriados/criar', [Feriados2Controller::class, 'criar'])->name('criar.feriados');
+
+// Rota para salvar o feriado (POST)
+Route::post('/cadastros/feriados/criar', [Feriados2Controller::class, 'criarferiado'])->name('salvar.feriados');
+
+// Rota para mostrar o formulário de edição
+Route::get('/cadastros/feriados/editar/{id}', [Feriados2Controller::class, 'editar'])->name('editar.feriados');
+
+// Rota para atualizar o feriado
+Route::put('/cadastros/feriados/atualizar/{id}', [Feriados2Controller::class, 'atualizar'])->name('atualizar.feriados');
+
+// Rota para excluir o feriado
+Route::delete('/cadastros/feriados/excluir/{id}', [Feriados2Controller::class, 'excluir'])->name('excluir.feriados');
